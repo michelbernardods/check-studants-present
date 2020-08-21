@@ -1,9 +1,9 @@
 /* 
-    Tenho dois arquivos
+    Tenho dois arquivos - OK
 
-    Ler dois arquivos com FS
+    Ler dois arquivos com FS OK
 
-    jogos tudo que esta nesse arquivo
+    jogos tudo que esta nesse arquivo OK
 
     faço a separação com ele com a quantidade, e pula uma linha por arquivo
         EX: 2017200965 = 10 
@@ -42,7 +42,12 @@ for (let e of list2) {
    abertos.delete(e)
 }
 
+
+
+
 abertos = Array.from(abertos);
+abertos = abertos.filter(e => String(e).trim());
+//abertos = abertos.filter(s => s.replace(/\s+/g, '').length !== 0);
 console.log(abertos);
 
 
