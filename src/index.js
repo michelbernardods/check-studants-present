@@ -3,11 +3,11 @@ const path = require('path')
 
 
 
-const matriculas_cadastradas = fs.readFileSync('matriculas.txt', 'utf8')
+const matriculas_cadastradas = fs.readFileSync('./files/matriculas.txt', 'utf8')
 const parse_matriculas = matriculas_cadastradas.split('\n');
 
 
-const alunos_comparecidos = fs.readFileSync('alunos_comparecidos.txt', 'utf8')
+const alunos_comparecidos = fs.readFileSync('./files/alunos_comparecidos.txt', 'utf8')
 const alunos = alunos_comparecidos.split('\n');
 
 
