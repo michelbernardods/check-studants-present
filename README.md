@@ -1,4 +1,4 @@
-# check-users-present
+# check students present
 
 ```
 ENGLISH
