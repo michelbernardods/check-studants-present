@@ -24,31 +24,21 @@ const path = require('path')
 
 
 
-let listOne = fs.readFileSync('list.txt', 'utf8')
-var list1 = listOne.split('\n');
-//console.log(list1);
+const matriculas_cadastradas = fs.readFileSync('matriculas.txt', 'utf8')
+const parse_matriculas = matriculas_cadastradas.split('\n');
 
 
-let listTwo = fs.readFileSync('verifylist.txt', 'utf8')
-var list2 = listTwo.split('\n');
-//console.log(list2);
+const alunos_comparecidos = fs.readFileSync('alunos_comparecidos.txt', 'utf8')
+const alunos = alunos_comparecidos.split('\n');
 
 
-
-
-
-let abertos = new Set(list1);
-for (let e of list2) {
-   abertos.delete(e)
+let alunos_nao_presente = new Set(parse_matriculas);
+for (let matriculas of alunos) {
+   alunos_nao_presente.delete(matriculas)
 }
 
 
-
-
-abertos = Array.from(abertos);
-abertos = abertos.filter(e => String(e).trim());
-//abertos = abertos.filter(s => s.replace(/\s+/g, '').length !== 0);
-console.log(abertos);
-
-
-
+alunos_nao_presente = Array.from(alunos_nao_presente);
+alunos_nao_presente = alunos_nao_presente.filter(matriculas => String(matriculas).trim());
+//alunos_nao_presente = alunos_nao_presente.filter(s => s.replace(/\s+/g, '').length !== 0);
+console.log(`Total de alunos que não compareceu na aula: ${alunos_nao_presente.length} \n\n  ${alunos_nao_presente} `);
