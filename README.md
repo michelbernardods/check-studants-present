@@ -1,4 +1,6 @@
-# check students present
+<h2 align="center">Check Students Present</h2>
+
+<br>
 
 ```
 ENGLISH
