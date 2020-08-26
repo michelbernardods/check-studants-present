@@ -4,15 +4,18 @@ const path = require('path')
 
 
 const matriculas_cadastradas = fs.readFileSync('./files/matriculas.txt', 'utf8')
-const parse_matriculas = matriculas_cadastradas.split('\n');
+let parse_matriculas = matriculas_cadastradas.split('\n');
 
 
 const alunos_comparecidos = fs.readFileSync('./files/alunos_comparecidos.txt', 'utf8')
-const alunos = alunos_comparecidos.split('\n');
+let alunos = alunos_comparecidos.split('\n');
+
+
+let valida_matriculas = alunos.filter(item => item.startsWith('20') && item.length  == 10)
 
 
 let alunos_nao_presente = new Set(parse_matriculas);
-for (let matriculas of alunos) {
+for (let matriculas of valida_matriculas) {
    alunos_nao_presente.delete(matriculas)
 }
 
