@@ -11,6 +11,7 @@ let file_alunos_cadastrados = fs.readdirSync("./alunos_cadastrados/")
 if(file_alunos_cadastrados == '' || file_alunos_cadastrados == null) throw err
 if(file_alunos_cadastrados !==  matriculas) matriculas = file_alunos_cadastrados.toString()
 
+// console.log(matriculas);
 
 let preenchimento_alunos = fs.readdirSync("./preenchimento_alunos/")
 
@@ -51,7 +52,7 @@ if(total_alunos === -1) {
 
 
 let alunos_que_faltou = `Total de alunos que não compareceu na aula: ${total_alunos} \n\n${parse_alunos_nao_presentes}`
-fs.writeFileSync('../alunos_que_faltou.txt', alunos_que_faltou)
+fs.writeFileSync('./alunos_que_faltou.txt', alunos_que_faltou)
 
 
 
