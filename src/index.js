@@ -1,8 +1,29 @@
 const fs = require('fs')
 
-const matriculas_cadastradas = fs.readFileSync('./files/matriculas.txt', 'utf8')
+
+
+var matriculas = 'matriculas.txt'
+var matriculas_preenchidas = 'alunos_comparecidos.txt'
+
+
+let file_alunos_cadastrados = fs.readdirSync("./alunos_cadastrados/")
+
+if(file_alunos_cadastrados == '' || file_alunos_cadastrados == null) throw err
+if(file_alunos_cadastrados !==  matriculas) matriculas = file_alunos_cadastrados.toString()
+
+
+let preenchimento_alunos = fs.readdirSync("./preenchimento_alunos/")
+
+if(preenchimento_alunos == '' || preenchimento_alunos == null) throw err
+if(preenchimento_alunos !==  matriculas_preenchidas) matriculas_preenchidas = preenchimento_alunos.toString()
+
+
+
+let matriculas_cadastradas = fs.readFileSync(`./alunos_cadastrados/${matriculas}`, 'utf8')
 let parse_matriculas = matriculas_cadastradas.split('\n');
-const alunos_comparecidos = fs.readFileSync('./files/alunos_comparecidos.txt', 'utf8')
+
+
+const alunos_comparecidos = fs.readFileSync(`./preenchimento_alunos/${matriculas_preenchidas}`, 'utf8')
 let alunos = alunos_comparecidos.split('\n');
 
 
@@ -15,17 +36,22 @@ for (let matriculas of alunos) {
     alunos_nao_presente.delete(matriculas)
 }
 
-
 alunos_nao_presente = Array.from(alunos_nao_presente)
 alunos_nao_presente.sort()
 
 let parse_alunos_nao_presentes = alunos_nao_presente.join("\n")
 
 
-let alunos_que_faltou = `Total de alunos que não compareceu na aula: ${alunos_nao_presente.length - 1} \n\n${parse_alunos_nao_presentes}`
+let total_alunos = alunos_nao_presente.length -1
+if(total_alunos === -1) {
+     total_alunos = 0
+} else {
+    total_alunos = alunos_nao_presente.length
+}
 
 
-fs.writeFileSync('alunos_que_faltou.txt', alunos_que_faltou)
+let alunos_que_faltou = `Total de alunos que não compareceu na aula: ${total_alunos} \n\n${parse_alunos_nao_presentes}`
+fs.writeFileSync('../alunos_que_faltou.txt', alunos_que_faltou)
 
 
 
