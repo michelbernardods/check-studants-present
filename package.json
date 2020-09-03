@@ -1,0 +1,23 @@
+{
+  "name": "check-studants-present",
+  "version": "1.0.0",
+  "description": "<h2 align=\"center\">Check Students Present</h2>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  
+
+  "bin": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michelbernardods/check-studants-present"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michelbernardods/check-studants-present/issues"
+  },
+  "homepage": "https://github.com/michelbernardods/check-studants-present#readme"
+}
